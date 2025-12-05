@@ -8,8 +8,35 @@
   </head>
   <body>
     <main>
-      <h1>Welcome to Admin Dashboard</h1>
+      <h1>Admin Dashboard</h1>
+
       <a href="/logout" class="btn">Logout</a>
+
+      <section class="products-section">
+        <h2>Products</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Qty</th>
+              <th>Cost price</th>
+              <th>Selling price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for product in products %}
+            <tr>
+              <td>{{ product.name }}</td>
+              <td>{{ product.qty }}</td>
+              <td>{{ product.cost_price }}</td>
+              <td>{{ product.selling_price }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
     </main>
   </body>
 </html>
