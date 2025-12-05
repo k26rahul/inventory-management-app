@@ -7,36 +7,21 @@
     <link rel="stylesheet" href="/static/dashboard.css" />
   </head>
   <body>
-    <main>
+    <nav>
       <h1>Admin Dashboard</h1>
 
-      <a href="/logout" class="btn">Logout</a>
+      <div class="nav-links">
+        <a href="/admin/home" class="active">Home</a>
+        <a href="/admin/products">Products</a>
+        <a href="/admin/orders">Orders</a>
+        <a href="/admin/customers">Customers</a>
+        <a href="/admin/suppliers">Suppliers</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </nav>
 
-      <section class="products-section">
-        <h2>Products</h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Qty</th>
-              <th>Cost price</th>
-              <th>Selling price</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {% for product in products %}
-            <tr>
-              <td>{{ product.name }}</td>
-              <td>{{ product.qty }}</td>
-              <td>{{ product.cost_price }}</td>
-              <td>{{ product.selling_price }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </section>
+    <main>
+      <h2>Summary of inventory</h2>
     </main>
   </body>
 </html>

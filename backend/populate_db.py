@@ -20,12 +20,11 @@ def populate_db():
 
   with open("./sample_data/products.csv") as f:
     for product in DictReader(f):
-      for i in range(100):
-        db.session.add(Product(
-            name=f"{product["name"]} ~ {i}",
-            cost_price=product["cost_price"],
-            selling_price=product["selling_price"],
-            qty=product["qty"],
-        ))
+      db.session.add(Product(
+          name=f"{product["name"]}",
+          cost_price=product["cost_price"],
+          selling_price=product["selling_price"],
+          qty=product["qty"],
+      ))
 
   db.session.commit()
