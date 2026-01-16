@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from utils import role_required
-from models import Product
+from models import Product, Order, Customer, Supplier
 
 admin_bp = Blueprint("admin_bp", __name__, url_prefix="/admin")
 
@@ -16,3 +16,24 @@ def admin_home():
 def admin_products():
   products = Product.query.all()
   return render_template("admin/products.html", products=products)
+
+
+@admin_bp.route("/orders")
+@role_required("admin")
+def admin_orders():
+  orders = Order.query.all()
+  return render_template("admin/orders.html", orders=orders)
+
+
+@admin_bp.route("/customers")
+@role_required("admin")
+def admin_customers():
+  customers = Customer.query.all()
+  return render_template("admin/customers.html", customers=customers)
+
+
+@admin_bp.route("/suppliers")
+@role_required("admin")
+def admin_suppliers():
+  suppliers = Supplier.query.all()
+  return render_template("admin/suppliers.html", suppliers=suppliers)
